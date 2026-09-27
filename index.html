@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Spyra — Small team. Big games.</title>
+  <meta name="description" content="Spyra is a game development studio building fun, creative and meaningful games for players around the world. Discover Spyra Games and Spyra Labs.">
+  <meta name="author" content="Spyra Studios">
+  <meta name="theme-color" content="#0c4d37">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icons/favicon.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-wrap" aria-label="Spyra Homepage">
+        <img src="assets/images/branding/spyra-logo.png" alt="Spyra Logo" class="brand-logo-img">
+        <span class="brand-name">spyra</span>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#games" class="nav-item">Games</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#contact" class="nav-item">Contact</a>
+        <a href="https://discord.gg/bB2cfKCAR" target="_blank" rel="noopener noreferrer" class="nav-item nav-discord-link" aria-label="Join our Discord">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -3px; margin-right: 4px;">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+          Discord
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-btn" id="mobileBtn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION (Checkerboard Background)
+         ========================================================================== -->
+    <section class="hero-section checkerboard-section" id="home">
+      <div class="container hero-layout">
+        <!-- Hero Copy -->
+        <div class="hero-content">
+          <h1 class="hero-heading">
+            <span class="title-white">Small team.</span>
+            <span class="title-mint">Big games.</span>
+          </h1>
+
+          <p class="hero-text">
+            We are Spyra — a game development studio building fun, creative and meaningful games for players around the world.
+          </p>
+
+          <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+            <a href="#games" class="btn-mint-pill">
+              <span>Explore Our Games</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Spaceship Artwork -->
+        <div class="hero-art-col">
+          <div class="hero-art-wrapper">
+            <img src="assets/images/games/hero-spaceship.png" alt="Spyra Starship" class="hero-diorama-img">
+            
+            <!-- Floating Star Accents -->
+            <span class="floating-star star-1">✦</span>
+            <span class="floating-star star-2">★</span>
+            <span class="floating-star star-3">✦</span>
+            <span class="floating-star star-4">★</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Organic Wave Transition (Green -> White) -->
+    <div class="wave-divider" style="background:#0c4d37;">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="width:100%; height:100%; display:block;">
+        <path d="M0,0 C320,80 720,20 1080,75 C1260,100 1380,80 1440,60 L1440,100 L0,100 Z" fill="#f9fdfa"></path>
+      </svg>
+    </div>
+
+    <!-- ==========================================================================
+         WHAT WE DO SECTION (Clean Light Background)
+         ========================================================================== -->
+    <section class="what-we-do-section" id="about">
+      <div class="container">
+        <span class="section-tag-light">WHAT WE DO</span>
+        <h2 class="section-title-light">
+          <span class="dash">-</span> Games, from idea to launch. <span class="dash">-</span>
+        </h2>
+
+        <!-- 4 Core Pillars -->
+        <div class="features-grid">
+          <!-- Item 1: Game Development -->
+          <div class="feature-item">
+            <div class="feature-icon-box">
+              <svg width="58" height="58" viewBox="0 0 64 64" fill="none">
+                <!-- Sparkles -->
+                <circle cx="10" cy="18" r="3" fill="#98ee84" />
+                <circle cx="54" cy="18" r="3" fill="#98ee84" />
+                <circle cx="8" cy="46" r="2.5" fill="#98ee84" />
+                <circle cx="56" cy="46" r="2.5" fill="#98ee84" />
+                <!-- Controller -->
+                <rect x="14" y="20" width="36" height="24" rx="12" fill="#0f3d2f" />
+                <!-- D-pad -->
+                <rect x="20" y="28" width="8" height="3" rx="1.5" fill="#98ee84" />
+                <rect x="22.5" y="25.5" width="3" height="8" rx="1.5" fill="#98ee84" />
+                <!-- Buttons -->
+                <circle cx="39" cy="28" r="2" fill="#fcd561" />
+                <circle cx="44" cy="32" r="2" fill="#f43f5e" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Game Development</h3>
+            <p class="feature-desc">From concept to final build, we create engaging games for PC, mobile and beyond.</p>
+          </div>
+
+          <!-- Item 2: Art & Design -->
+          <div class="feature-item">
+            <div class="feature-icon-box">
+              <svg width="58" height="58" viewBox="0 0 64 64" fill="none">
+                <!-- Sparkles -->
+                <polygon points="12,18 14,14 18,12 14,10 12,6 10,10 6,12 10,14" fill="#98ee84" />
+                <polygon points="50,14 52,11 55,10 52,9 50,6 48,9 45,10 48,11" fill="#98ee84" />
+                <!-- Brush Handle & Tip -->
+                <path d="M42 12L48 18L32 34L26 28L42 12Z" fill="#0f3d2f" />
+                <path d="M26 28L32 34L24 44C20 48 14 46 16 40L26 28Z" fill="#146b4e" />
+                <circle cx="20" cy="42" r="3" fill="#98ee84" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Art & Design</h3>
+            <p class="feature-desc">Stylish visuals, smooth animations and polished player experiences.</p>
+          </div>
+
+          <!-- Item 3: Creative Ideas -->
+          <div class="feature-item">
+            <div class="feature-icon-box">
+              <svg width="58" height="58" viewBox="0 0 64 64" fill="none">
+                <!-- Rays -->
+                <line x1="32" y1="8" x2="32" y2="13" stroke="#98ee84" stroke-width="3" stroke-linecap="round" />
+                <line x1="16" y1="16" x2="20" y2="20" stroke="#98ee84" stroke-width="3" stroke-linecap="round" />
+                <line x1="48" y1="16" x2="44" y2="20" stroke="#98ee84" stroke-width="3" stroke-linecap="round" />
+                <line x1="10" y1="32" x2="15" y2="32" stroke="#98ee84" stroke-width="3" stroke-linecap="round" />
+                <line x1="54" y1="32" x2="49" y2="32" stroke="#98ee84" stroke-width="3" stroke-linecap="round" />
+                <!-- Bulb -->
+                <path d="M22 32C22 26.5 26.5 22 32 22C37.5 22 42 26.5 42 32C42 36 39 39 37 42H27C25 39 22 36 22 32Z" fill="#fcd561" />
+                <rect x="27" y="44" width="10" height="5" rx="2" fill="#0f3d2f" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Creative Ideas</h3>
+            <p class="feature-desc">We love unique concepts, fun mechanics and memorable worlds.</p>
+          </div>
+
+          <!-- Item 4: Built with Passion -->
+          <div class="feature-item">
+            <div class="feature-icon-box">
+              <svg width="58" height="58" viewBox="0 0 64 64" fill="none">
+                <!-- Flame -->
+                <path d="M22 42C18 46 16 52 20 54C24 56 30 50 28 44L22 42Z" fill="#98ee84" />
+                <!-- Rocket -->
+                <path d="M48 14C34 16 26 26 24 38L32 44C42 40 48 28 48 14Z" fill="#e11d48" />
+                <!-- Fins & Window -->
+                <path d="M28 26L20 28L24 38L28 26Z" fill="#0f3d2f" />
+                <path d="M38 36L36 44L46 40L38 36Z" fill="#0f3d2f" />
+                <circle cx="36" cy="26" r="3.5" fill="#fcd561" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Built with Passion</h3>
+            <p class="feature-desc">A small team, big dreams, working hard to make great games.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Organic Wave Transition (White -> Green) -->
+    <div class="wave-divider" style="background:#0c4d37;">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="width:100%; height:100%; display:block;">
+        <path d="M0,0 L1440,0 L1440,40 C1180,-10 860,85 520,30 C280,-10 120,60 0,50 Z" fill="#f9fdfa"></path>
+      </svg>
+    </div>
+
+    <!-- ==========================================================================
+         FEATURED GAMES SECTION (Checkerboard Background)
+         ========================================================================== -->
+    <section class="featured-games-section checkerboard-section" id="games">
+      <div class="container">
+        <span class="section-tag-dark">FEATURED GAMES</span>
+        <h2 class="section-title-dark">
+          <span class="dash">-</span> Our Latest Creations <span class="dash">-</span>
+        </h2>
+
+        <!-- 2 Large Featured Game Cards Matching Mockup -->
+        <div class="games-showcase-grid" id="gamesGrid">
+          <!-- Card 1: Room to Breathe -->
+          <article class="game-showcase-card" data-game="room-to-breathe" tabindex="0" role="button" aria-label="Room to Breathe">
+            <div class="game-card-info">
+              <div class="game-card-icon">
+                <!-- Sprout Icon Matching Reference Mockup -->
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <path d="M18 5C18 5 14 9 14 14C14 16.5 15.8 18.5 18 19C20.2 18.5 22 16.5 22 14C22 9 18 5 18 5Z" fill="#98ee84"/>
+                  <path d="M10 13C10 13 7 16 8 20C8.8 22 11 23 13.5 22C14 19 12.5 15 10 13Z" fill="#75d65e"/>
+                  <path d="M26 13C26 13 29 16 28 20C27.2 22 25 23 22.5 22C22 19 23.5 15 26 13Z" fill="#75d65e"/>
+                  <path d="M18 19V27" stroke="#98ee84" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="game-card-title">Room to Breathe</h3>
+              <p class="game-card-pitch">A cozy logic puzzle about space and comfort.</p>
+              <div class="game-platform-tags">
+                <span class="platform-pill">PC</span>
+                <a href="https://store.steampowered.com/app/4380870/Room_to_Breathe/" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">Steam ↗</a>
+              </div>
+            </div>
+            <div class="game-card-visual">
+              <picture>
+                <source media="(max-width: 640px)" srcset="assets/images/games/room-to-breathe-horizontal.png">
+                <img src="assets/images/games/room-to-breathe-vertical.png" alt="Room to Breathe" loading="lazy">
+              </picture>
+            </div>
+          </article>
+
+          <!-- Card 2: Moon Swarm -->
+          <article class="game-showcase-card" data-game="moon-swarm" tabindex="0" role="button" aria-label="Moon Swarm">
+            <div class="game-card-info">
+              <div class="game-card-icon">
+                <!-- Antenna Dish Icon Matching Reference Mockup -->
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <path d="M18 8C13 8 9 11.5 8 16L28 16C27 11.5 23 8 18 8Z" fill="#fcd561"/>
+                  <line x1="18" y1="16" x2="18" y2="26" stroke="#fcd561" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="18" cy="5" r="2.5" fill="#98ee84"/>
+                </svg>
+              </div>
+              <h3 class="game-card-title">Moon Swarm</h3>
+              <p class="game-card-pitch">Defend your moon while you work (or pretend to work).</p>
+              <div class="game-platform-tags">
+                <span class="platform-pill">PC</span>
+                <a href="https://store.steampowered.com/app/5040610/Moon_Swarm/" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">Steam ↗</a>
+              </div>
+            </div>
+            <div class="game-card-visual">
+              <picture>
+                <source media="(max-width: 640px)" srcset="assets/images/games/moon-swarm-horizontal.png">
+                <img src="assets/images/games/moon-swarm-vertical.png" alt="Moon Swarm" loading="lazy">
+              </picture>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bottom Center Button -->
+        <div class="showcase-action-center">
+          <a href="#contact" class="btn-green-outline">
+            <span>View All Games</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT SECTION (Checkerboard Background)
+         ========================================================================== -->
+    <section class="contact-section checkerboard-section" id="contact">
+      <div class="container">
+        <span class="section-tag-dark">GET IN TOUCH</span>
+        <h2 class="section-title-dark">
+          <span class="dash">-</span> Let's Create Together <span class="dash">-</span>
+        </h2>
+
+        <!-- Discord Community Invite Banner -->
+        <div class="discord-community-card">
+          <div class="discord-card-info">
+            <div class="discord-icon-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="discord-title">Join our Discord Community</h3>
+              <p class="discord-desc">Connect with our team, get development updates, and share feedback.</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/bB2cfKCAR" target="_blank" rel="noopener noreferrer" class="btn-discord-pill">
+            <span>Join Discord</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="contact-card-box">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="contactName">Name</label>
+                <input type="text" id="contactName" placeholder="Your Name" required>
+              </div>
+              <div class="form-field">
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" placeholder="your@email.com" required>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="contactSubject">Subject</label>
+              <input type="text" id="contactSubject" placeholder="e.g. Game Inquiry or Publishing" required>
+            </div>
+
+            <div class="form-field">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" placeholder="Tell us about your project or inquiry..." required></textarea>
+            </div>
+
+            <div id="formSuccessMsg" style="display:none; color:var(--mint-accent); font-weight:700; text-align:center; padding:10px;"></div>
+
+            <button type="submit" class="btn-mint-pill" style="width:100%; justify-content:center; cursor:pointer;">
+              <span>Send Message to Spyra</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#home" class="brand-wrap">
+        <img src="assets/images/branding/spyra-logo.png" alt="Spyra Logo" style="height:28px; width:auto;">
+        <span class="brand-name" style="font-size:1.5rem;">spyra</span>
+      </a>
+
+      <nav class="footer-nav">
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://discord.gg/bB2cfKCAR" target="_blank" rel="noopener noreferrer">Discord</a>
+      </nav>
+
+      <div class="footer-copyright">
+        © 2026 Spyra Studios. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       GAME SHOWCASE MODAL (Trailer & Gameplay GIFs)
+       ========================================================================== -->
+  <div class="game-modal-backdrop" id="gameModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalGameTitle">
+    <div class="game-modal-dialog">
+      <!-- Modal Header Bar -->
+      <div class="modal-top-bar">
+        <div class="modal-game-identity">
+          <img src="" alt="" id="modalGameIcon" class="modal-game-icon-thumb">
+          <h3 class="modal-game-title" id="modalGameTitle">Game Title</h3>
+        </div>
+        <button class="modal-close-button" id="modalCloseBtn" aria-label="Close dialog">✕</button>
+      </div>
+
+      <!-- Media Selector Tabs -->
+      <div class="modal-media-nav" id="modalMediaNav">
+        <!-- Populated by JS: Trailer, GIF 1, GIF 2 -->
+      </div>
+
+      <!-- Active Media Screen -->
+      <div class="modal-screen-container">
+        <!-- Video Player (Official Trailer) -->
+        <div class="media-screen-item" id="modalVideoWrapper">
+          <video id="modalVideoPlayer" controls playsinline preload="metadata">
+            <source src="" type="video/mp4" id="modalVideoSource">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+
+        <!-- GIF Viewer -->
+        <div class="media-screen-item" id="modalImageWrapper" style="display:none; position:relative;">
+          <div class="media-loading-indicator" id="modalImageLoader" style="display:none;">
+            <div class="loader-spinner"></div>
+            <span>Loading preview...</span>
+          </div>
+          <img src="" alt="Gameplay Preview" id="modalDisplayImage" class="modal-screen-img" loading="eager" decoding="async">
+        </div>
+      </div>
+
+      <!-- Action Bar (Steam Access) -->
+      <div class="modal-play-cta-box">
+        <span class="cta-heading" id="modalCtaHeading">Ready to play?</span>
+        <div class="cta-actions-row" id="modalCtaActions">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-mint-pill" id="modalSteamActionBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.979 0C5.364 0 0 5.364 0 11.979c0 5.308 3.447 9.808 8.243 11.405l3.479-5.061a4.24 4.24 0 0 1-.362-1.706c0-2.353 1.908-4.262 4.262-4.262 2.353 0 4.261 1.909 4.261 4.262 0 2.354-1.908 4.262-4.261 4.262a4.238 4.238 0 0 1-2.482-.803l-3.528 5.132c.594.137 1.209.214 1.84.214 6.615 0 11.979-5.364 11.979-11.979C23.958 5.364 18.594 0 11.979 0z"/>
+            </svg>
+            <span id="modalSteamActionText">Check Out the Game</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
