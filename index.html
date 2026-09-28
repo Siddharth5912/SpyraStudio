@@ -14,9 +14,9 @@
   <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="apple-touch-icon" href="assets/icons/favicon.png">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
+  <!-- Stylesheets with Cache Buster -->
+  <link rel="stylesheet" href="css/style.css?v=2.4">
+  <link rel="stylesheet" href="css/animations.css?v=2.4">
 </head>
 <body>
 
@@ -320,7 +320,7 @@
 
           <div class="asset-spotlight-content">
             <div class="asset-brand-tag">
-              <img src="assets/images/branding/spyra-final-logo.png" alt="Spyra Logo" class="asset-brand-icon">
+              <img src="assets/images/branding/spyra-logo.png" alt="Spyra Logo" class="asset-brand-icon" width="18" height="18" style="width:18px; height:18px; max-width:18px; max-height:18px; object-fit:contain; display:inline-block; vertical-align:middle; flex-shrink:0;">
               <span>SPYRA ASSETS</span>
             </div>
 
@@ -358,7 +358,7 @@
         </h2>
 
         <!-- Discord Community Invite Banner -->
-        <div class="discord-community-card">
+        <div class="discord-community-card" style="box-sizing:border-box; max-width:100%; overflow:hidden;">
           <div class="discord-card-info">
             <div class="discord-icon-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
@@ -370,7 +370,7 @@
               <p class="discord-desc">Connect with our team, get development updates, and share feedback.</p>
             </div>
           </div>
-          <a href="https://discord.gg/trq7PJp9k" target="_blank" rel="noopener noreferrer" class="btn-discord-pill">
+          <a href="https://discord.gg/trq7PJp9k" target="_blank" rel="noopener noreferrer" class="btn-discord-pill" style="box-sizing:border-box;">
             <span>Join Discord</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -504,10 +504,10 @@
       <!-- Modal Header Bar -->
       <div class="modal-top-bar">
         <div class="modal-game-identity">
-          <div class="asset-modal-logo-wrap">
-            <img src="assets/images/branding/spyra-final-logo.png" alt="Spyra Logo" class="asset-modal-icon">
+          <div class="asset-modal-logo-wrap" style="width:36px; height:36px; min-width:36px; max-width:36px; flex-shrink:0;">
+            <img src="assets/images/branding/spyra-logo.png" alt="Spyra Logo" class="asset-modal-icon" width="22" height="22" style="width:22px; height:22px; max-width:22px; max-height:22px; object-fit:contain; display:block;">
           </div>
-          <div>
+          <div style="min-width:0; flex:1;">
             <h3 class="modal-game-title" id="assetModalTitle">Simple Flags — Custom Stickers Demo</h3>
             <span class="asset-modal-subtitle">Universal Render Pipeline (URP) Flag & Banner Shader</span>
           </div>
@@ -517,7 +517,7 @@
 
       <!-- Video Player Container -->
       <div class="modal-screen-container">
-        <video id="assetModalVideoPlayer" controls playsinline preload="metadata">
+        <video id="assetModalVideoPlayer" controls playsinline webkit-playsinline preload="metadata" poster="assets/images/labs/simple-flags.png">
           <source src="assets/videos/simple-flags-demo.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
@@ -542,7 +542,7 @@
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <!-- Scripts with Cache Buster -->
+  <script src="js/main.js?v=2.4"></script>
 </body>
 </html>
