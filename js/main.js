@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initContactForm();
   initGameShowcaseModal();
+  initAssetVideoModal();
+  initAssetInquiryLinks();
+  initScrollSpy();
   preloadGameMedia();
 });
 
@@ -92,14 +95,35 @@ function initMobileMenu() {
   const mobileBtn = document.getElementById('mobileBtn');
   const navMenu = document.getElementById('navMenu');
 
-  mobileBtn?.addEventListener('click', () => {
-    navMenu?.classList.toggle('open');
+  if (!mobileBtn || !navMenu) return;
+
+  const closeMenu = () => {
+    navMenu.classList.remove('open');
+    mobileBtn.classList.remove('open');
+    mobileBtn.setAttribute('aria-expanded', 'false');
+  };
+
+  mobileBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('open');
+    mobileBtn.classList.toggle('open', isOpen);
+    mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
   document.querySelectorAll('.nav-item').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu?.classList.remove('open');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
   });
 }
 
@@ -333,3 +357,131 @@ function closeGameShowcase() {
   document.body.style.overflow = '';
   currentModalGame = null;
 }
+
+// ============================================================================
+// ASSET VIDEO MODAL (Simple Flags & Tool Demonstration)
+// ============================================================================
+function initAssetVideoModal() {
+  const assetModal = document.getElementById('assetVideoModal');
+  const closeBtn = document.getElementById('assetModalCloseBtn');
+  const videoPlayer = document.getElementById('assetModalVideoPlayer');
+  const openVisualBtn = document.getElementById('openSimpleFlagsVisual');
+  const openButtonBtn = document.getElementById('btnWatchSimpleFlags');
+
+  if (!assetModal) return;
+
+  const openModal = () => {
+    assetModal.style.display = 'flex';
+    requestAnimationFrame(() => {
+      assetModal.classList.add('open');
+      assetModal.setAttribute('aria-hidden', 'false');
+    });
+    document.body.style.overflow = 'hidden';
+
+    if (videoPlayer) {
+      videoPlayer.play().catch(() => {});
+    }
+  };
+
+  const closeModal = () => {
+    if (videoPlayer) {
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+    }
+    assetModal.classList.remove('open');
+    assetModal.setAttribute('aria-hidden', 'true');
+    setTimeout(() => {
+      assetModal.style.display = 'none';
+    }, 250);
+    document.body.style.overflow = '';
+  };
+
+  openVisualBtn?.addEventListener('click', openModal);
+  openVisualBtn?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModal();
+    }
+  });
+
+  openButtonBtn?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+
+  assetModal.addEventListener('click', (e) => {
+    if (e.target === assetModal) {
+      closeModal();
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (!assetModal.classList.contains('open')) return;
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+}
+
+// Pre-fill contact form when clicking asset inquiry links
+function initAssetInquiryLinks() {
+  const subjectInput = document.getElementById('contactSubject');
+  const messageInput = document.getElementById('contactMessage');
+  const assetModal = document.getElementById('assetVideoModal');
+  const videoPlayer = document.getElementById('assetModalVideoPlayer');
+
+  document.querySelectorAll('.asset-inquire-link, #assetModalCtaBtn').forEach(link => {
+    link.addEventListener('click', () => {
+      // If modal is open, close it
+      if (assetModal?.classList.contains('open')) {
+        if (videoPlayer) {
+          videoPlayer.pause();
+          videoPlayer.currentTime = 0;
+        }
+        assetModal.classList.remove('open');
+        assetModal.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+          assetModal.style.display = 'none';
+        }, 250);
+        document.body.style.overflow = '';
+      }
+
+      const toolName = link.getAttribute('data-tool') || 'Simple Flags';
+      if (subjectInput) {
+        subjectInput.value = `${toolName} Asset Inquiry`;
+      }
+      setTimeout(() => {
+        messageInput?.focus();
+      }, 500);
+    });
+  });
+}
+
+// Active navigation highlight based on scroll position
+function initScrollSpy() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-menu .nav-item');
+
+  if (!sections.length || !navLinks.length) return;
+
+  const onScroll = () => {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 140;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          } else if (link.getAttribute('href')?.startsWith('#')) {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+

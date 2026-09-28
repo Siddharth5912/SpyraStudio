@@ -5,6 +5,7 @@ Official static portfolio website for **Spyra Studios** — indie game developme
 Featuring:
 - **Room to Breathe** — A cozy logic puzzle game about space and comfort (Available on Steam).
 - **Moon Swarm** — Idle/arcade moon defense game (Play Demo on Steam).
+- **Tools & Assets** — **Simple Flags** (high-performance vertex-displacement flag & banner shader for URP).
 
 ---
 
@@ -21,19 +22,21 @@ Upload the following files and folders to the root of your GitHub repository:
 ├── .nojekyll                    # Tells GitHub Pages to bypass Jekyll processing
 ├── .gitignore                   # Ignores local raw assets
 ├── css/
-│   └── style.css                # Official design styles & checkerboard theme
+│   ├── style.css                # Official design styles & checkerboard theme
+│   └── animations.css           # Micro-animations and keyframes
 ├── js/
-│   └── main.js                  # Video/GIF modal viewer & interactive logic
+│   └── main.js                  # Video/GIF modals, asset viewer & interactive logic
 └── assets/
     ├── icons/
     │   └── favicon.png          # Browser favicon
     ├── images/
-    │   ├── branding/
-    │   │   └── spyra-logo.png   # Official geometric S logo
-    │   └── games/               # Game capsules, hero starship & gameplay GIFs
+    │   ├── branding/            # Official geometric S logo & marks
+    │   ├── games/               # Game capsules, hero starship & gameplay GIFs
+    │   └── labs/                # Simple Flags, GridMaster 3D & shader previews
     └── videos/
         ├── room-to-breathe-trailer.mp4
-        └── moon-swarm-trailer.mp4
+        ├── moon-swarm-trailer.mp4
+        └── simple-flags-demo.mp4
 ```
 
 > **Note:** The `My Assets/` folder is your local raw backup directory containing uncompressed source duplicates; it is excluded via `.gitignore` and **does not** need to be uploaded to GitHub.

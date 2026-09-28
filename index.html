@@ -6,7 +6,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Spyra — Small team. Big games.</title>
-  <meta name="description" content="Spyra is a game development studio building fun, creative and meaningful games for players around the world. Discover Spyra Games and Spyra Labs.">
+  <meta name="description" content="Spyra is a game development studio building fun, creative and meaningful games, tools, and assets for players and creators around the world. Discover Spyra Games and Assets.">
   <meta name="author" content="Spyra Studios">
   <meta name="theme-color" content="#0c4d37">
 
@@ -14,8 +14,9 @@
   <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="apple-touch-icon" href="assets/icons/favicon.png">
 
-  <!-- Stylesheet -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 
@@ -34,9 +35,10 @@
       <nav class="nav-menu" id="navMenu">
         <a href="#home" class="nav-item active">Home</a>
         <a href="#games" class="nav-item">Games</a>
+        <a href="#assets" class="nav-item">Assets</a>
         <a href="#about" class="nav-item">About</a>
         <a href="#contact" class="nav-item">Contact</a>
-        <a href="https://discord.gg/bB2cfKCAR" target="_blank" rel="noopener noreferrer" class="nav-item nav-discord-link" aria-label="Join our Discord">
+        <a href="https://discord.gg/trq7PJp9k" target="_blank" rel="noopener noreferrer" class="nav-item nav-discord-link" aria-label="Join our Discord">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -3px; margin-right: 4px;">
             <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
           </svg>
@@ -73,6 +75,13 @@
           <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
             <a href="#games" class="btn-mint-pill">
               <span>Explore Our Games</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#assets" class="btn-green-outline">
+              <span>Browse Assets</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -283,6 +292,62 @@
     </section>
 
     <!-- ==========================================================================
+         TOOLS & ASSETS SECTION (Checkerboard Background)
+         ========================================================================== -->
+    <section class="assets-section checkerboard-section" id="assets">
+      <div class="container">
+        <span class="section-tag-dark">ASSETS</span>
+        <h2 class="section-title-dark">
+          <span class="dash">-</span> Tools & Assets <span class="dash">-</span>
+        </h2>
+
+        <!-- Spotlight Featured Asset: Simple Flags -->
+        <div class="asset-spotlight-card" id="spotlightSimpleFlags">
+          <div class="asset-spotlight-visual">
+            <div class="asset-visual-wrapper" id="openSimpleFlagsVisual" role="button" aria-label="Play Simple Flags Video Demonstration" tabindex="0">
+              <img src="assets/images/labs/simple-flags.png" alt="Simple Flags Banner" class="asset-main-banner" loading="lazy">
+
+              <div class="asset-play-overlay">
+                <div class="play-button-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6,4 20,12 6,20"></polygon>
+                  </svg>
+                </div>
+                <span class="play-button-text">Watch Custom Stickers Demo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="asset-spotlight-content">
+            <div class="asset-brand-tag">
+              <img src="assets/images/branding/spyra-final-logo.png" alt="Spyra Logo" class="asset-brand-icon">
+              <span>SPYRA ASSETS</span>
+            </div>
+
+            <h3 class="asset-title">Simple Flags</h3>
+
+            <p class="asset-desc">
+              A lightweight, high-performance vertex-displacement flag & banner shader for the Universal Render Pipeline (URP). Designed as a drop-in, zero-CPU alternative to costly cloth simulations.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="asset-action-row">
+              <button type="button" class="btn-mint-pill asset-trigger-btn" id="btnWatchSimpleFlags">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6,4 20,12 6,20"></polygon>
+                </svg>
+                <span>Watch Video Demo</span>
+              </button>
+              <a href="#contact" class="btn-green-outline-sm asset-inquire-link" data-tool="Simple Flags">
+                <span>Inquire About Asset ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          CONTACT SECTION (Checkerboard Background)
          ========================================================================== -->
     <section class="contact-section checkerboard-section" id="contact">
@@ -305,7 +370,7 @@
               <p class="discord-desc">Connect with our team, get development updates, and share feedback.</p>
             </div>
           </div>
-          <a href="https://discord.gg/bB2cfKCAR" target="_blank" rel="noopener noreferrer" class="btn-discord-pill">
+          <a href="https://discord.gg/trq7PJp9k" target="_blank" rel="noopener noreferrer" class="btn-discord-pill">
             <span>Join Discord</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -361,9 +426,10 @@
       <nav class="footer-nav">
         <a href="#home">Home</a>
         <a href="#games">Games</a>
+        <a href="#assets">Assets</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="https://discord.gg/bB2cfKCAR" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://discord.gg/trq7PJp9k" target="_blank" rel="noopener noreferrer">Discord</a>
       </nav>
 
       <div class="footer-copyright">
@@ -420,6 +486,52 @@
               <path d="M11.979 0C5.364 0 0 5.364 0 11.979c0 5.308 3.447 9.808 8.243 11.405l3.479-5.061a4.24 4.24 0 0 1-.362-1.706c0-2.353 1.908-4.262 4.262-4.262 2.353 0 4.261 1.909 4.261 4.262 0 2.354-1.908 4.262-4.261 4.262a4.238 4.238 0 0 1-2.482-.803l-3.528 5.132c.594.137 1.209.214 1.84.214 6.615 0 11.979-5.364 11.979-11.979C23.958 5.364 18.594 0 11.979 0z"/>
             </svg>
             <span id="modalSteamActionText">Check Out the Game</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ASSET VIDEO MODAL (Simple Flags & Tool Demos)
+       ========================================================================== -->
+  <div class="asset-modal-backdrop" id="assetVideoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="assetModalTitle">
+    <div class="asset-modal-dialog">
+      <!-- Modal Header Bar -->
+      <div class="modal-top-bar">
+        <div class="modal-game-identity">
+          <div class="asset-modal-logo-wrap">
+            <img src="assets/images/branding/spyra-final-logo.png" alt="Spyra Logo" class="asset-modal-icon">
+          </div>
+          <div>
+            <h3 class="modal-game-title" id="assetModalTitle">Simple Flags — Custom Stickers Demo</h3>
+            <span class="asset-modal-subtitle">Universal Render Pipeline (URP) Flag & Banner Shader</span>
+          </div>
+        </div>
+        <button class="modal-close-button" id="assetModalCloseBtn" aria-label="Close dialog">✕</button>
+      </div>
+
+      <!-- Video Player Container -->
+      <div class="modal-screen-container">
+        <video id="assetModalVideoPlayer" controls playsinline preload="metadata">
+          <source src="assets/videos/simple-flags-demo.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Modal Footer / Action Bar -->
+      <div class="modal-play-cta-box">
+        <div class="asset-modal-info-col">
+          <span class="cta-heading">Want to integrate Simple Flags into your game?</span>
+          <p class="asset-modal-pitch">A lightweight, high-performance vertex-displacement flag & banner shader for URP.</p>
+        </div>
+        <div class="cta-actions-row">
+          <a href="#contact" class="btn-mint-pill" id="assetModalCtaBtn">
+            <span>Inquire About Simple Flags</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"></line>
               <polyline points="7 7 17 7 17 17"></polyline>

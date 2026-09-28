@@ -1,0 +1,8 @@
+# Raw asset dumps / unoptimized source files
+My Assets/
+
+# OS metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
