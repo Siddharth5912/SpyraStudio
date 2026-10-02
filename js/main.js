@@ -45,6 +45,62 @@ const SPYRA_GAMES = {
         src: 'assets/images/games/moon-swarm-gameplay-2.gif'
       }
     ]
+  },
+  'mobile-games': {
+    id: 'mobile-games',
+    title: 'Mobile Games',
+    verticalCapsule: 'assets/images/games/mobile-game-puff.png',
+    horizontalCapsule: 'assets/images/games/mobile-showcase-horizontal.png',
+    trailer: 'assets/videos/all-games-showcase.mp4',
+    trailerTabLabel: '🎬 Showcase Video',
+    steamUrl: '#contact',
+    ctaText: 'Contact Team Spyra',
+    clips: []
+  },
+  'key-bound': {
+    id: 'key-bound',
+    title: 'Key Bound',
+    verticalCapsule: 'assets/images/games/key-bound.png',
+    horizontalCapsule: 'assets/images/games/key-bound.png',
+    trailer: '',
+    steamUrl: 'https://itch.io',
+    ctaText: 'Play on itch.io ↗',
+    clips: [
+      {
+        tabLabel: '🎮 Gameplay',
+        src: 'assets/images/games/key-bound.png'
+      }
+    ]
+  },
+  'serum-xiii': {
+    id: 'serum-xiii',
+    title: 'Serum XIII',
+    verticalCapsule: 'assets/images/games/serum-xiii.png',
+    horizontalCapsule: 'assets/images/games/serum-xiii.png',
+    trailer: '',
+    steamUrl: 'https://itch.io',
+    ctaText: 'Play on itch.io ↗',
+    clips: [
+      {
+        tabLabel: '🎮 Gameplay',
+        src: 'assets/images/games/serum-xiii.png'
+      }
+    ]
+  },
+  'oon-wala': {
+    id: 'oon-wala',
+    title: 'OON WALA',
+    verticalCapsule: 'assets/images/games/oon-wala.png',
+    horizontalCapsule: 'assets/images/games/oon-wala.png',
+    trailer: '',
+    steamUrl: 'https://itch.io',
+    ctaText: 'Play on itch.io ↗',
+    clips: [
+      {
+        tabLabel: '🎮 Gameplay',
+        src: 'assets/images/games/oon-wala.png'
+      }
+    ]
   }
 };
 
@@ -59,6 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
   initMobileMenu();
   initContactForm();
+  initGamesCarousel();
+  initMobileRotator();
   initGameShowcaseModal();
   initAssetVideoModal();
   initAssetInquiryLinks();
@@ -66,8 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
   preloadGameMedia();
 });
 
-// Preload all GIF clips into browser memory immediately
+// Preload media into browser memory immediately
 function preloadGameMedia() {
+  // Preload clips from registry
   Object.values(SPYRA_GAMES).forEach(game => {
     if (game.clips) {
       game.clips.forEach(clip => {
@@ -75,6 +134,19 @@ function preloadGameMedia() {
         img.src = clip.src;
       });
     }
+  });
+
+  // Preload mobile preview images
+  const mobileImgs = [
+    'assets/images/games/mobile-game-puff.png',
+    'assets/images/games/mobile-game-bartender.png',
+    'assets/images/games/mobile-game-chub.png',
+    'assets/images/games/mobile-game-resort.png',
+    'assets/images/games/mobile-showcase-horizontal.png'
+  ];
+  mobileImgs.forEach(src => {
+    const img = new Image();
+    img.src = src;
   });
 }
 
@@ -160,24 +232,46 @@ function initGameShowcaseModal() {
 
   if (!modal) return;
 
-  // Open modal when clicking on a game card
-  document.querySelectorAll('.game-showcase-card').forEach(card => {
-    card.addEventListener('click', () => {
+  // Open modal via event delegation on #gamesGrid (works seamlessly for original & cloned cards)
+  const gamesGrid = document.getElementById('gamesGrid');
+  gamesGrid?.addEventListener('click', (e) => {
+    // If clicked a link, CTA, or button, let it navigate normally
+    if (e.target.closest('a') || e.target.closest('.platform-link') || e.target.closest('button')) {
+      return;
+    }
+    const card = e.target.closest('.game-showcase-card');
+    if (!card) return;
+    const gameId = card.getAttribute('data-game');
+    if (gameId && SPYRA_GAMES[gameId]) {
+      openGameShowcase(gameId);
+    }
+  });
+
+  gamesGrid?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const card = e.target.closest('.game-showcase-card');
+      if (!card) return;
+      e.preventDefault();
       const gameId = card.getAttribute('data-game');
       if (gameId && SPYRA_GAMES[gameId]) {
         openGameShowcase(gameId);
       }
-    });
+    }
+  });
 
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const gameId = card.getAttribute('data-game');
-        if (gameId && SPYRA_GAMES[gameId]) {
-          openGameShowcase(gameId);
-        }
-      }
-    });
+  // Explicit button to watch mobile showcase
+  const watchMobileBtn = document.getElementById('btnWatchMobileShowcase');
+  watchMobileBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openGameShowcase('mobile-games');
+  });
+
+  // Close modal when clicking a hash link CTA (e.g. #contact)
+  const steamBtn = document.getElementById('modalSteamActionBtn');
+  steamBtn?.addEventListener('click', () => {
+    if (steamBtn.getAttribute('href')?.startsWith('#')) {
+      closeGameShowcase();
+    }
   });
 
   // Close button
@@ -216,28 +310,47 @@ function openGameShowcase(gameId) {
     iconEl.alt = `${game.title} Capsule`;
   }
 
-  // Configure Dynamic Steam CTA Button
+  // Configure Dynamic CTA Button
   const steamBtn = document.getElementById('modalSteamActionBtn');
   const steamText = document.getElementById('modalSteamActionText');
   if (steamBtn && steamText) {
     steamBtn.href = game.steamUrl;
     steamText.textContent = game.ctaText;
+    if (game.steamUrl && game.steamUrl.startsWith('#')) {
+      steamBtn.target = '_self';
+    } else {
+      steamBtn.target = '_blank';
+    }
   }
 
-  // Exactly 3 clean media items: Trailer Video, Gameplay GIF 1, Gameplay GIF 2
-  modalMediaItems = [
-    {
+  // Media items: Video Trailer/Showcase followed by clips/screenshots
+  modalMediaItems = [];
+  if (game.trailer && game.trailer.trim() !== '') {
+    modalMediaItems.push({
       type: 'video',
-      tabLabel: '🎬 Trailer',
+      tabLabel: game.trailerTabLabel || '🎬 Trailer',
       src: game.trailer
-    },
-    ...game.clips.map((clip) => ({
-      type: 'gif',
-      tabLabel: clip.tabLabel,
-      src: clip.src,
-      fallbackSrc: clip.fallbackSrc
-    }))
-  ];
+    });
+  }
+
+  if (game.clips && game.clips.length) {
+    game.clips.forEach((clip) => {
+      modalMediaItems.push({
+        type: clip.type || 'image',
+        tabLabel: clip.tabLabel,
+        src: clip.src,
+        fallbackSrc: clip.fallbackSrc
+      });
+    });
+  }
+
+  if (modalMediaItems.length === 0 && game.verticalCapsule) {
+    modalMediaItems.push({
+      type: 'image',
+      tabLabel: '🎮 Artwork',
+      src: game.verticalCapsule
+    });
+  }
 
   renderModalTabs();
   activateMedia(0);
@@ -255,6 +368,14 @@ function renderModalTabs() {
   if (!navContainer) return;
 
   navContainer.innerHTML = '';
+
+  // If there's only 1 item (e.g. mobile games has only the showcase video), hide media tabs
+  if (modalMediaItems.length <= 1) {
+    navContainer.style.display = 'none';
+    return;
+  }
+
+  navContainer.style.display = 'flex';
   modalMediaItems.forEach((item, index) => {
     const btn = document.createElement('button');
     btn.className = `media-nav-tab ${index === 0 ? 'active' : ''}`;
@@ -485,3 +606,314 @@ function initScrollSpy() {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
+// ============================================================================
+// MOBILE GAMES CARD - CONTINUOUS VERTICAL ROTATOR
+// ============================================================================
+let mobileRotatorInterval = null;
+let currentMobileSlide = 0;
+const MOBILE_SLIDE_DURATION = 3200; // Change slide every 3.2 seconds
+
+function initMobileRotator() {
+  const rotators = document.querySelectorAll('.mobile-vertical-rotator');
+  if (!rotators.length) return;
+
+  startMobileRotator();
+
+  rotators.forEach(rotator => {
+    const card = rotator.closest('.game-showcase-card');
+    card?.addEventListener('mouseenter', stopMobileRotator);
+    card?.addEventListener('mouseleave', startMobileRotator);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopMobileRotator();
+    } else {
+      startMobileRotator();
+    }
+  });
+}
+
+function goToMobileSlide(index) {
+  const rotators = document.querySelectorAll('.mobile-vertical-rotator');
+  if (!rotators.length) return;
+
+  const firstRotatorSlides = rotators[0].querySelectorAll('.rotator-slide');
+  if (!firstRotatorSlides.length) return;
+
+  currentMobileSlide = (index + firstRotatorSlides.length) % firstRotatorSlides.length;
+
+  rotators.forEach(rotator => {
+    const slides = rotator.querySelectorAll('.rotator-slide');
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('active', idx === currentMobileSlide);
+    });
+  });
+}
+
+function startMobileRotator() {
+  stopMobileRotator();
+  mobileRotatorInterval = setInterval(() => {
+    goToMobileSlide(currentMobileSlide + 1);
+  }, MOBILE_SLIDE_DURATION);
+}
+
+function stopMobileRotator() {
+  if (mobileRotatorInterval) {
+    clearInterval(mobileRotatorInterval);
+    mobileRotatorInterval = null;
+  }
+}
+
+// ============================================================================
+// FEATURED GAMES CAROUSEL - INFINITE LOOP & SMOOTH SCROLL SYSTEM
+// ============================================================================
+let isCarouselDragging = false;
+let carouselHasDragged = false;
+
+function initGamesCarousel() {
+  const viewport = document.getElementById('gamesCarouselViewport');
+  const grid = document.getElementById('gamesGrid');
+  const prevBtn = document.getElementById('carouselPrevBtn');
+  const nextBtn = document.getElementById('carouselNextBtn');
+  const indicatorsContainer = document.getElementById('carouselIndicators');
+
+  if (!viewport || !grid) return;
+
+  const originalCards = Array.from(grid.querySelectorAll('.game-showcase-card'));
+  const totalCards = originalCards.length;
+  if (totalCards === 0) return;
+
+  // 1. Create seamless infinite clone sets: [Clone Set Before] [Original Set] [Clone Set After]
+  // This allows infinite scrolling both left and right without ever reaching a hard wall.
+  const beforeClones = originalCards.map(card => {
+    const clone = card.cloneNode(true);
+    clone.classList.add('carousel-clone', 'clone-before');
+    clone.setAttribute('aria-hidden', 'true');
+    // Strip duplicate IDs to keep HTML valid
+    clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+    return clone;
+  });
+
+  const afterClones = originalCards.map(card => {
+    const clone = card.cloneNode(true);
+    clone.classList.add('carousel-clone', 'clone-after');
+    clone.setAttribute('aria-hidden', 'true');
+    // Strip duplicate IDs to keep HTML valid
+    clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+    return clone;
+  });
+
+  // Prepend before-clones in reverse order so they match the original order
+  for (let i = beforeClones.length - 1; i >= 0; i--) {
+    grid.insertBefore(beforeClones[i], grid.firstChild);
+  }
+  // Append after-clones
+  afterClones.forEach(clone => grid.appendChild(clone));
+
+  // Helper to measure accurate card full stride (width + gap)
+  function getCardStride() {
+    const card = grid.querySelector('.game-showcase-card');
+    if (!card) return 586;
+    const style = window.getComputedStyle(grid);
+    const gap = parseFloat(style.columnGap || style.gap) || 28;
+    return card.offsetWidth + gap;
+  }
+
+  function getSetWidth() {
+    return totalCards * getCardStride();
+  }
+
+  // Set initial scroll position to the start of the middle (original) set
+  function setInitialPosition() {
+    const setWidth = getSetWidth();
+    viewport.scrollLeft = setWidth;
+  }
+
+  // Position immediately
+  setInitialPosition();
+
+  // 2. Active Dot Indicators
+  const indicatorDots = indicatorsContainer ? Array.from(indicatorsContainer.querySelectorAll('.indicator-dot')) : [];
+
+  function updateActiveDot(index) {
+    const normalized = ((index % totalCards) + totalCards) % totalCards;
+    indicatorDots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === normalized);
+    });
+  }
+
+  // 3. Silent boundary wrap normalizer
+  let isNormalizing = false;
+
+  function checkBoundaryWrap() {
+    if (isNormalizing || isCarouselDragging) return;
+    const setWidth = getSetWidth();
+    if (setWidth <= 0) return;
+
+    const scrollLeft = viewport.scrollLeft;
+    const stride = getCardStride();
+
+    // If scrolled deeply into the "after" clone set
+    if (scrollLeft >= setWidth * 2 - (stride * 0.2)) {
+      isNormalizing = true;
+      viewport.scrollLeft = scrollLeft - setWidth;
+      isNormalizing = false;
+    }
+    // If scrolled deeply into the "before" clone set
+    else if (scrollLeft <= setWidth * 0.3) {
+      isNormalizing = true;
+      viewport.scrollLeft = scrollLeft + setWidth;
+      isNormalizing = false;
+    }
+
+    const currentIndex = Math.round((viewport.scrollLeft - setWidth) / stride);
+    updateActiveDot(currentIndex);
+  }
+
+  let scrollTimeout = null;
+  viewport.addEventListener('scroll', () => {
+    const stride = getCardStride();
+    const setWidth = getSetWidth();
+    const rawIndex = Math.round((viewport.scrollLeft - setWidth) / stride);
+    const currentIndex = ((rawIndex % totalCards) + totalCards) % totalCards;
+    updateActiveDot(currentIndex);
+
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      checkBoundaryWrap();
+    }, 90);
+  }, { passive: true });
+
+  // 4. Smooth Navigation Buttons (Next / Prev)
+  function scrollByCards(count) {
+    const stride = getCardStride();
+    const setWidth = getSetWidth();
+
+    // If near the boundaries, instantly normalize first before smooth scroll
+    if (viewport.scrollLeft >= setWidth * 2 - 10) {
+      viewport.scrollLeft -= setWidth;
+    } else if (viewport.scrollLeft <= setWidth * 0.2) {
+      viewport.scrollLeft += setWidth;
+    }
+
+    const currentCard = Math.round(viewport.scrollLeft / stride);
+    const targetScroll = (currentCard + count) * stride;
+
+    viewport.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth'
+    });
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    scrollByCards(1);
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    scrollByCards(-1);
+  });
+
+  // 5. Indicator Dots Click
+  indicatorDots.forEach((dot, dotIdx) => {
+    dot.addEventListener('click', () => {
+      const setWidth = getSetWidth();
+      const stride = getCardStride();
+      const targetScroll = setWidth + (dotIdx * stride);
+
+      viewport.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
+      updateActiveDot(dotIdx);
+    });
+  });
+
+  // 6. Mouse Drag-To-Scroll (with smooth snapping & click protection)
+  let startX = 0;
+  let scrollLeftStart = 0;
+
+  viewport.addEventListener('mousedown', (e) => {
+    if (e.target.closest('a') || e.target.closest('.platform-link') || e.target.closest('button')) {
+      return;
+    }
+    isCarouselDragging = true;
+    carouselHasDragged = false;
+    startX = e.pageX - viewport.offsetLeft;
+    scrollLeftStart = viewport.scrollLeft;
+    viewport.classList.add('is-dragging');
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isCarouselDragging) return;
+    const x = e.pageX - viewport.offsetLeft;
+    const walk = x - startX;
+    if (Math.abs(walk) > 5) {
+      carouselHasDragged = true;
+    }
+    viewport.scrollLeft = scrollLeftStart - walk;
+
+    // Real-time boundary wrap while dragging
+    const setWidth = getSetWidth();
+    if (setWidth > 0) {
+      if (viewport.scrollLeft >= setWidth * 2) {
+        viewport.scrollLeft -= setWidth;
+        scrollLeftStart -= setWidth;
+      } else if (viewport.scrollLeft < setWidth) {
+        viewport.scrollLeft += setWidth;
+        scrollLeftStart += setWidth;
+      }
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isCarouselDragging) return;
+    isCarouselDragging = false;
+    viewport.classList.remove('is-dragging');
+
+    // Snap to nearest card smoothly upon drag release
+    const stride = getCardStride();
+    const nearestIndex = Math.round(viewport.scrollLeft / stride);
+    viewport.scrollTo({
+      left: nearestIndex * stride,
+      behavior: 'smooth'
+    });
+
+    // Reset drag flag after small delay to protect click events
+    setTimeout(() => {
+      carouselHasDragged = false;
+    }, 60);
+  });
+
+  // 7. Mouse Wheel on Carousel translates to horizontal scrolling
+  viewport.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      viewport.scrollLeft += e.deltaY * 0.9;
+    }
+  }, { passive: false });
+
+  // 8. Keyboard Arrow Navigation
+  viewport.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      scrollByCards(1);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      scrollByCards(-1);
+    }
+  });
+
+  // 9. Window Resize
+  let resizeTimeout = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const stride = getCardStride();
+      const setWidth = getSetWidth();
+      const currentDot = indicatorDots.findIndex(d => d.classList.contains('active'));
+      const activeIdx = currentDot >= 0 ? currentDot : 0;
+      viewport.scrollLeft = setWidth + (activeIdx * stride);
+    }, 120);
+  });
+}

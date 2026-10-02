@@ -15,8 +15,8 @@
   <link rel="apple-touch-icon" href="assets/icons/favicon.png">
 
   <!-- Stylesheets with Cache Buster -->
-  <link rel="stylesheet" href="css/style.css?v=2.4">
-  <link rel="stylesheet" href="css/animations.css?v=2.4">
+  <link rel="stylesheet" href="css/style.css?v=3.1">
+  <link rel="stylesheet" href="css/animations.css?v=3.1">
 </head>
 <body>
 
@@ -221,60 +221,223 @@
           <span class="dash">-</span> Our Latest Creations <span class="dash">-</span>
         </h2>
 
-        <!-- 2 Large Featured Game Cards Matching Mockup -->
-        <div class="games-showcase-grid" id="gamesGrid">
-          <!-- Card 1: Room to Breathe -->
-          <article class="game-showcase-card" data-game="room-to-breathe" tabindex="0" role="button" aria-label="Room to Breathe">
-            <div class="game-card-info">
-              <div class="game-card-icon">
-                <!-- Sprout Icon Matching Reference Mockup -->
-                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
-                  <path d="M18 5C18 5 14 9 14 14C14 16.5 15.8 18.5 18 19C20.2 18.5 22 16.5 22 14C22 9 18 5 18 5Z" fill="#98ee84"/>
-                  <path d="M10 13C10 13 7 16 8 20C8.8 22 11 23 13.5 22C14 19 12.5 15 10 13Z" fill="#75d65e"/>
-                  <path d="M26 13C26 13 29 16 28 20C27.2 22 25 23 22.5 22C22 19 23.5 15 26 13Z" fill="#75d65e"/>
-                  <path d="M18 19V27" stroke="#98ee84" stroke-width="2.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3 class="game-card-title">Room to Breathe</h3>
-              <p class="game-card-pitch">A cozy logic puzzle about space and comfort.</p>
-              <div class="game-platform-tags">
-                <span class="platform-pill">PC</span>
-                <a href="https://store.steampowered.com/app/4380870/Room_to_Breathe/" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">Steam ↗</a>
-              </div>
-            </div>
-            <div class="game-card-visual">
-              <picture>
-                <source media="(max-width: 640px)" srcset="assets/images/games/room-to-breathe-horizontal.png">
-                <img src="assets/images/games/room-to-breathe-vertical.png" alt="Room to Breathe" loading="lazy">
-              </picture>
-            </div>
-          </article>
+        <!-- Featured Games Carousel Wrapper with Infinite Loop & Drag Scrolling -->
+        <div class="games-carousel-wrapper" id="gamesCarouselWrapper">
+          <!-- Left Navigation Button -->
+          <button class="carousel-nav-btn carousel-btn-prev" id="carouselPrevBtn" aria-label="Previous Games">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
 
-          <!-- Card 2: Moon Swarm -->
-          <article class="game-showcase-card" data-game="moon-swarm" tabindex="0" role="button" aria-label="Moon Swarm">
-            <div class="game-card-info">
-              <div class="game-card-icon">
-                <!-- Antenna Dish Icon Matching Reference Mockup -->
-                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
-                  <path d="M18 8C13 8 9 11.5 8 16L28 16C27 11.5 23 8 18 8Z" fill="#fcd561"/>
-                  <line x1="18" y1="16" x2="18" y2="26" stroke="#fcd561" stroke-width="2.5" stroke-linecap="round"/>
-                  <circle cx="18" cy="5" r="2.5" fill="#98ee84"/>
-                </svg>
-              </div>
-              <h3 class="game-card-title">Moon Swarm</h3>
-              <p class="game-card-pitch">Defend your moon while you work (or pretend to work).</p>
-              <div class="game-platform-tags">
-                <span class="platform-pill">PC</span>
-                <a href="https://store.steampowered.com/app/5040610/Moon_Swarm/" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">Steam ↗</a>
-              </div>
+          <!-- Scrollable Carousel Viewport -->
+          <div class="games-carousel-viewport" id="gamesCarouselViewport">
+            <div class="games-showcase-grid" id="gamesGrid">
+              <!-- Card 1: Room to Breathe -->
+              <article class="game-showcase-card" data-game="room-to-breathe" tabindex="0" role="button" aria-label="Room to Breathe">
+                <div class="game-card-info">
+                  <div class="game-card-icon">
+                    <!-- Sprout Icon -->
+                    <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                      <path d="M18 5C18 5 14 9 14 14C14 16.5 15.8 18.5 18 19C20.2 18.5 22 16.5 22 14C22 9 18 5 18 5Z" fill="#98ee84"/>
+                      <path d="M10 13C10 13 7 16 8 20C8.8 22 11 23 13.5 22C14 19 12.5 15 10 13Z" fill="#75d65e"/>
+                      <path d="M26 13C26 13 29 16 28 20C27.2 22 25 23 22.5 22C22 19 23.5 15 26 13Z" fill="#75d65e"/>
+                      <path d="M18 19V27" stroke="#98ee84" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3 class="game-card-title">Room to Breathe</h3>
+                  <p class="game-card-pitch">A cozy logic puzzle about space and comfort.</p>
+                  <div class="game-platform-tags">
+                    <span class="platform-pill">PC</span>
+                    <a href="https://store.steampowered.com/app/4380870/Room_to_Breathe/" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">Steam ↗</a>
+                  </div>
+                </div>
+                <div class="game-card-visual">
+                  <picture>
+                    <source media="(max-width: 640px)" srcset="assets/images/games/room-to-breathe-horizontal.png">
+                    <img src="assets/images/games/room-to-breathe-vertical.png" alt="Room to Breathe" loading="lazy">
+                  </picture>
+                </div>
+              </article>
+
+              <!-- Card 2: Moon Swarm -->
+              <article class="game-showcase-card" data-game="moon-swarm" tabindex="0" role="button" aria-label="Moon Swarm">
+                <div class="game-card-info">
+                  <div class="game-card-icon">
+                    <!-- Antenna Dish Icon -->
+                    <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                      <path d="M18 8C13 8 9 11.5 8 16L28 16C27 11.5 23 8 18 8Z" fill="#fcd561"/>
+                      <line x1="18" y1="16" x2="18" y2="26" stroke="#fcd561" stroke-width="2.5" stroke-linecap="round"/>
+                      <circle cx="18" cy="5" r="2.5" fill="#98ee84"/>
+                    </svg>
+                  </div>
+                  <h3 class="game-card-title">Moon Swarm</h3>
+                  <p class="game-card-pitch">Defend your moon while you work (or pretend to work).</p>
+                  <div class="game-platform-tags">
+                    <span class="platform-pill">PC</span>
+                    <a href="https://store.steampowered.com/app/5040610/Moon_Swarm/" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">Steam ↗</a>
+                  </div>
+                </div>
+                <div class="game-card-visual">
+                  <picture>
+                    <source media="(max-width: 640px)" srcset="assets/images/games/moon-swarm-horizontal.png">
+                    <img src="assets/images/games/moon-swarm-vertical.png" alt="Moon Swarm" loading="lazy">
+                  </picture>
+                </div>
+              </article>
+
+              <!-- Card 3: Mobile Games -->
+              <article class="game-showcase-card" data-game="mobile-games" tabindex="0" role="button" aria-label="Mobile Games">
+                <div class="game-card-info">
+                  <div class="game-card-icon">
+                    <!-- Mobile Phone Icon -->
+                    <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                      <rect x="9" y="3" width="18" height="30" rx="4" stroke="#98ee84" stroke-width="2.5" fill="#0b3829" />
+                      <line x1="14" y1="7" x2="22" y2="7" stroke="#98ee84" stroke-width="2" stroke-linecap="round"/>
+                      <circle cx="18" cy="28.5" r="1.5" fill="#98ee84"/>
+                      <path d="M4 14L8 10L6 18Z" fill="#fcd561"/>
+                      <circle cx="31" cy="11" r="2.5" fill="#38bdf8"/>
+                    </svg>
+                  </div>
+                  <h3 class="game-card-title">Mobile Games</h3>
+                  <p class="game-card-pitch">These are some of the games made by Team Spyra. Every game has a unique art style, different genre, etc.</p>
+                  <div class="game-platform-tags">
+                    <span class="platform-pill">Mobile</span>
+                    <span class="platform-pill platform-link" onclick="event.stopPropagation(); openGameShowcase('mobile-games');">Watch Video ↗</span>
+                  </div>
+                </div>
+                <div class="game-card-visual mobile-card-visual">
+                  <!-- Desktop: Vertical rotating images changing every few seconds -->
+                  <div class="mobile-vertical-rotator" id="mobileVerticalRotator" aria-label="Mobile games vertical preview">
+                    <div class="rotator-slide active" data-slide-index="0">
+                      <img src="assets/images/games/mobile-game-puff.png" alt="PUFF! Mobile Game" loading="lazy">
+                    </div>
+                    <div class="rotator-slide" data-slide-index="1">
+                      <img src="assets/images/games/mobile-game-bartender.png" alt="Bartender Mobile Game" loading="lazy">
+                    </div>
+                    <div class="rotator-slide" data-slide-index="2">
+                      <img src="assets/images/games/mobile-game-chub.png" alt="Chub Mobile Game" loading="lazy">
+                    </div>
+                    <div class="rotator-slide" data-slide-index="3">
+                      <img src="assets/images/games/mobile-game-resort.png" alt="Tycoon Mobile Game" loading="lazy">
+                    </div>
+                  </div>
+
+                  <!-- Mobile: Horizontal image showing multiple games -->
+                  <div class="mobile-horizontal-view">
+                    <img src="assets/images/games/mobile-showcase-horizontal.png" alt="Mobile Games Showcase" class="mobile-horizontal-img" loading="lazy">
+                  </div>
+
+                  <!-- Hover / Tap Video Overlay -->
+                  <div class="mobile-play-overlay">
+                    <div class="play-button-circle">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="6,4 20,12 6,20"></polygon>
+                      </svg>
+                    </div>
+                    <span class="play-button-text">Watch Video</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 4: Key Bound -->
+              <article class="game-showcase-card" data-game="key-bound" tabindex="0" role="button" aria-label="Key Bound">
+                <div class="game-card-info">
+                  <div class="game-card-icon">
+                    <!-- Keycap Icon -->
+                    <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                      <rect x="6" y="6" width="24" height="24" rx="6" fill="#0b3829" stroke="#38bdf8" stroke-width="2.5"/>
+                      <rect x="9" y="9" width="18" height="18" rx="4" fill="#072b1e"/>
+                      <path d="M18 13L22 18H14L18 13Z" fill="#38bdf8"/>
+                      <rect x="16.5" y="18" width="3" height="6" rx="1.5" fill="#38bdf8"/>
+                    </svg>
+                  </div>
+                  <h3 class="game-card-title">Key Bound</h3>
+                  <p class="game-card-pitch">Move physical keys to assign them with certain actions to solve puzzles.</p>
+                  <div class="game-platform-tags">
+                    <span class="platform-pill">PC</span>
+                    <a href="https://itch.io" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">itch.io ↗</a>
+                  </div>
+                </div>
+                <div class="game-card-visual">
+                  <picture>
+                    <img src="assets/images/games/key-bound.png" alt="Key Bound" loading="lazy">
+                  </picture>
+                </div>
+              </article>
+
+              <!-- Card 5: Serum XIII -->
+              <article class="game-showcase-card" data-game="serum-xiii" tabindex="0" role="button" aria-label="Serum XIII">
+                <div class="game-card-info">
+                  <div class="game-card-icon">
+                    <!-- Medical Kit with Band-aid Cross Icon -->
+                    <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                      <rect x="5" y="10" width="26" height="20" rx="5" fill="#0b3829" stroke="#98ee84" stroke-width="2.5"/>
+                      <path d="M13 10V7C13 5.9 13.9 5 15 5H21C22.1 5 23 5.9 23 7V10" stroke="#98ee84" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M18 14V26M12 20H24" stroke="#fcd561" stroke-width="3.5" stroke-linecap="round"/>
+                      <circle cx="18" cy="20" r="1.5" fill="#0b3829"/>
+                    </svg>
+                  </div>
+                  <h3 class="game-card-title">Serum XIII</h3>
+                  <p class="game-card-pitch">A survival horror game where you have to escape a zombie-infected island.</p>
+                  <div class="game-platform-tags">
+                    <span class="platform-pill">PC</span>
+                    <a href="https://itch.io" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">itch.io ↗</a>
+                  </div>
+                </div>
+                <div class="game-card-visual">
+                  <picture>
+                    <img src="assets/images/games/serum-xiii.png" alt="Serum XIII" loading="lazy">
+                  </picture>
+                </div>
+              </article>
+
+              <!-- Card 6: OON WALA -->
+              <article class="game-showcase-card" data-game="oon-wala" tabindex="0" role="button" aria-label="OON WALA">
+                <div class="game-card-info">
+                  <div class="game-card-icon">
+                    <!-- Shepherd Crook & Sheep Wool Icon -->
+                    <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                      <circle cx="15" cy="20" r="6" fill="#fcd561"/>
+                      <circle cx="21" cy="20" r="6" fill="#fcd561"/>
+                      <circle cx="18" cy="16" r="6" fill="#ffe082"/>
+                      <circle cx="24" cy="18" r="3.5" fill="#14532d"/>
+                      <circle cx="25.5" cy="17" r="1" fill="#ffffff"/>
+                      <path d="M10 27V12C10 9.8 11.8 8 14 8C16.2 8 18 9.8 18 12" stroke="#98ee84" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3 class="game-card-title">OON WALA</h3>
+                  <p class="game-card-pitch">Play as a shepherd trying to protect your sheep from wolves. An arcade-like game.</p>
+                  <div class="game-platform-tags">
+                    <span class="platform-pill">PC</span>
+                    <a href="https://itch.io" target="_blank" rel="noopener noreferrer" class="platform-pill platform-link" onclick="event.stopPropagation();">itch.io ↗</a>
+                  </div>
+                </div>
+                <div class="game-card-visual">
+                  <picture>
+                    <img src="assets/images/games/oon-wala.png" alt="OON WALA" loading="lazy">
+                  </picture>
+                </div>
+              </article>
             </div>
-            <div class="game-card-visual">
-              <picture>
-                <source media="(max-width: 640px)" srcset="assets/images/games/moon-swarm-horizontal.png">
-                <img src="assets/images/games/moon-swarm-vertical.png" alt="Moon Swarm" loading="lazy">
-              </picture>
-            </div>
-          </article>
+          </div>
+
+          <!-- Right Navigation Button -->
+          <button class="carousel-nav-btn carousel-btn-next" id="carouselNextBtn" aria-label="Next Games">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Carousel Indicators / Navigation Dots -->
+        <div class="carousel-indicators" id="carouselIndicators" aria-label="Carousel pagination">
+          <button class="indicator-dot active" data-index="0" aria-label="Game 1: Room to Breathe"></button>
+          <button class="indicator-dot" data-index="1" aria-label="Game 2: Moon Swarm"></button>
+          <button class="indicator-dot" data-index="2" aria-label="Game 3: Mobile Games"></button>
+          <button class="indicator-dot" data-index="3" aria-label="Game 4: Key Bound"></button>
+          <button class="indicator-dot" data-index="4" aria-label="Game 5: Serum XIII"></button>
+          <button class="indicator-dot" data-index="5" aria-label="Game 6: OON WALA"></button>
         </div>
 
         <!-- Bottom Center Button -->
@@ -543,6 +706,6 @@
   </div>
 
   <!-- Scripts with Cache Buster -->
-  <script src="js/main.js?v=2.4"></script>
+  <script src="js/main.js?v=3.1"></script>
 </body>
 </html>
