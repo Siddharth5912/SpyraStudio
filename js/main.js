@@ -63,12 +63,16 @@ const SPYRA_GAMES = {
     verticalCapsule: 'assets/images/games/key-bound.png',
     horizontalCapsule: 'assets/images/games/key-bound.png',
     trailer: '',
-    steamUrl: 'https://itch.io',
+    steamUrl: 'https://siddharth53.itch.io/key-bound',
     ctaText: 'Play on itch.io ↗',
     clips: [
       {
-        tabLabel: '🎮 Gameplay',
-        src: 'assets/images/games/key-bound.png'
+        tabLabel: '🎮 Gameplay 1',
+        src: 'assets/images/games/key-bound-gameplay-1.png'
+      },
+      {
+        tabLabel: '🧩 Gameplay 2',
+        src: 'assets/images/games/key-bound-gameplay-2.png'
       }
     ]
   },
@@ -78,11 +82,19 @@ const SPYRA_GAMES = {
     verticalCapsule: 'assets/images/games/serum-xiii.png',
     horizontalCapsule: 'assets/images/games/serum-xiii.png',
     trailer: '',
-    steamUrl: 'https://itch.io',
+    steamUrl: 'https://siddharth53.itch.io/serum-8',
     ctaText: 'Play on itch.io ↗',
     clips: [
       {
         tabLabel: '🎮 Gameplay',
+        src: 'assets/images/games/serum-xiii-gameplay.png'
+      },
+      {
+        tabLabel: '🪪 Access Pass',
+        src: 'assets/images/games/serum-xiii-pass.png'
+      },
+      {
+        tabLabel: '💊 Medkit Item',
         src: 'assets/images/games/serum-xiii.png'
       }
     ]
@@ -93,11 +105,19 @@ const SPYRA_GAMES = {
     verticalCapsule: 'assets/images/games/oon-wala.png',
     horizontalCapsule: 'assets/images/games/oon-wala.png',
     trailer: '',
-    steamUrl: 'https://itch.io',
+    steamUrl: 'https://siddharth53.itch.io/oon-wala',
     ctaText: 'Play on itch.io ↗',
     clips: [
       {
-        tabLabel: '🎮 Gameplay',
+        tabLabel: '⚡ Gameplay GIF',
+        src: 'assets/images/games/oon-wala-gameplay.gif'
+      },
+      {
+        tabLabel: '🎮 Title Screen',
+        src: 'assets/images/games/oon-wala-title.png'
+      },
+      {
+        tabLabel: '🐑 Pasture View',
         src: 'assets/images/games/oon-wala.png'
       }
     ]
